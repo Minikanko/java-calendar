@@ -14,20 +14,30 @@ public class Calendar {
 
 		Scanner scanner = new Scanner(System.in);
 		Calendar cal = new Calendar();
-		System.out.println("반복횟수를 입력하세요:");
-		int times = scanner.nextInt();
-		int[] month = new int[times];
-		System.out.println("월을 입력하세요:");
-		for(int i = 1; i<=times; i++) {
-			month[i-1] = scanner.nextInt();
+		while(true) {
+			System.out.println("월을 입력하세요:");
+			System.out.print("> ");
+			int input = scanner.nextInt();
+			if(input <=0) {
+				scanner.close();
+				System.out.println("Have a nice day!");
+				break;
+			}
+			else if (input > 12) {
+				continue;
+			}
+			System.out.println(cal.getMaxdayOfMonth(input));
+			
 		}
-		for(int i = 1; i<=times; i++) {
-			System.out.println(cal.getMaxdayOfMonth(month[i-1]));
-		}
 		
 		
-		
-		scanner.close();
+//		for(int i = 1; i<=times; i++) {
+//			month[i-1] = scanner.nextInt();
+//		}
+//		for(int i = 1; i<=times; i++) {
+//			System.out.println(cal.getMaxdayOfMonth(month[i-1]));
+//		}
+
 	}
 
 }
